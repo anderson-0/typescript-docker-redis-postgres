@@ -1,5 +1,5 @@
 {
-  "name": "rentx-rest-api",
+  "name": "node-typescript-docker-postgres-redis",
   "version": "1.0.0",
   "description": "Typescript Boilerplate with Docker, Postgres and Redis",
   "author": "Anderson da Silva <anderson.consultan.it@outlook.com>",
