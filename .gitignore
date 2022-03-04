@@ -1,0 +1,8 @@
+# NPM
+/node_modules/
+
+# MacOS
+.DS_Store
+
+# 8base
+/.build/

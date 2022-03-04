@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  database: # This is the name of the service that must be used in the file that creates the connection
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/data/postgres
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+
+  app:
+    build: .
+    container_name: app
+    restart: always
+    ports:
+      - 3333:3333
+      - 9229:9229
+    volumes:
+      - .:/usr/app
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local
